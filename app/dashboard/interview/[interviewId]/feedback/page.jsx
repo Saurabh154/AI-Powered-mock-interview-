@@ -37,7 +37,7 @@ function Feedback({ params }) {
     if (feedbacks.length > 0) {
       const totalRating = feedbacks.reduce((acc, item) => acc + (parseFloat(item.rating) || 0), 0);
       const averageRating = totalRating / feedbacks.length;
-      const scaledRating = Math.min(Math.max((averageRating / 5) * 10, 1), 10); // Ensuring rating between 1 and 10
+      const scaledRating = Math.max(Math.max((averageRating / 5) * 10, 1), 10); // Ensuring rating between 1 and 10
       setOverallRating(scaledRating.toFixed(1)); // Keeping one decimal place
     }
   };
